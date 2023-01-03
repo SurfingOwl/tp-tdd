@@ -1,9 +1,11 @@
 package fr.esgi.cleancode.service;
 
 import fr.esgi.cleancode.database.InMemoryDatabase;
+import fr.esgi.cleancode.exception.ResourceNotFoundException;
 import fr.esgi.cleancode.model.DrivingLicence;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
 import java.util.Optional;
@@ -33,6 +35,7 @@ class DrivingLicenceFinderServiceTest {
     @Test
     void should_not_find() {
         assertNotNull(drivingLicenceFinderService.findById(uuid));
-        assertEquals(Optional.empty(), drivingLicenceFinderService.findById(uuid));
+        // assertEquals(Optional.empty(), drivingLicenceFinderService.findById(uuid));
+        assertThrows(ResourceNotFoundException.class, () -> drivingLicenceFinderService.findById(uuid));
     }
 }

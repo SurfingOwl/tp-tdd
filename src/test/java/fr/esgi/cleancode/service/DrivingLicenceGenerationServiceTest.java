@@ -38,7 +38,6 @@ public class DrivingLicenceGenerationServiceTest {
     @Test
     void drivingLicenceShouldBeSaved() {
         //TODO ???
-        
     }
 
     @Test

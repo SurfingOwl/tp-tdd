@@ -11,9 +11,10 @@ import static org.mockito.Mockito.mock;
 
 class DrivingLicenceIdGenerationServiceTest {
     
-    private final DrivingLicenceIdGenerationService drivingLicenceIdGenerationService = new DrivingLicenceIdGenerationService();
     @Mock
     UUID uuid = mock(UUID.class);
+
+    private final DrivingLicenceIdGenerationService drivingLicenceIdGenerationService = new DrivingLicenceIdGenerationService();
 
     @Test
     void should_generate_valid_UUID() {
