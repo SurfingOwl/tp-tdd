@@ -1,6 +1,5 @@
 package fr.esgi.cleancode.service;
 
-import fr.esgi.cleancode.exception.InvalidDriverSocialSecurityNumberException;
 
 public class SocialSecurityNumberValidationService {
 
@@ -26,7 +25,8 @@ public class SocialSecurityNumberValidationService {
     public boolean isValid(String socialSecurityNumber) {
         if(isNull(socialSecurityNumber) && isNumberOnly(socialSecurityNumber) && isFifteenCharacters(socialSecurityNumber))
             return true;
-        throw new InvalidDriverSocialSecurityNumberException("Invalid Social Security Number: " + socialSecurityNumber);
+        else
+            return false;
     }
 
 }

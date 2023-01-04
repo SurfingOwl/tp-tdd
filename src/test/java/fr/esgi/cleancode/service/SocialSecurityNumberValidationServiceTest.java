@@ -38,7 +38,8 @@ public class SocialSecurityNumberValidationServiceTest {
 
     @Test
     void shouldBeThrowingInvalidDriverSocialSecurityNumberException() {
-        when(drivingLicence.getDriverSocialSecurityNumber()).thenReturn("123456789012345");        
-        assertThrowsExactly(InvalidDriverSocialSecurityNumberException.class, () -> socialSecurityNumberValidationService.isValid(drivingLicence.getDriverSocialSecurityNumber()));
+        DrivingLicenceGenerationService drivingLicenceGenerationService = mock(DrivingLicenceGenerationService.class);
+        when(socialSecurityNumberValidationService.isValid(null)).thenReturn(false);
+        assertThrowsExactly(InvalidDriverSocialSecurityNumberException.class, () -> drivingLicenceGenerationService.generateNewDrivingLicenceFromSocialSecurityNumber(""));
     }
 }
